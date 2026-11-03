@@ -1,37 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import schoolLogo from './assets/kando.jpg'
-import './App.css'
+import { Kor } from './Kor';
 
 export const App = () => {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://www.kkszki.hu" target="_blank"><img src={schoolLogo} alt="Iskola logó" width="200" /></a>
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h1>Dobozok helyett körök – Gyakorló</h1>
+      <p>Kattints a körökre a számok növeléséhez!</p>
+      
+      <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+        {/* 3 különböző színű, méretű és kiinduló értékű kör átadása props-ként */}
+        <Kor szin="red" meret={80} kezdoSzam={0} />
+        <Kor szin="blue" meret={120} kezdoSzam={5} />
+        <Kor szin="green" meret={100} kezdoSzam={10} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          a számláló állása: {count}
-        </button>
-        <p>
-          Módosítsd az <code>src/App.jsx</code>-t és mentsd le, hogy tesztelhesd a HMR-t!
-        </p>
-      </div>
-      <p className="read-the-docs">
-         Kattints a React, a Kandó, vagy a Vite logókra, további információkért!
-      </p>
-    </>
-  )
-}
-
-export default App
+    </div>
+  );
+};
